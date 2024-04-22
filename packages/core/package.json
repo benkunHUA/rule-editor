@@ -1,0 +1,39 @@
+{
+  "name": "@ben/rule-editor-core",
+  "version": "1.1.0",
+  "description": "rule-editor-core",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "tnpm run build && jest --coverage --forceExit",
+    "build": "tsc -p tsconfig.json",
+    "lint": "tslint --project . -c tslint.json",
+    "start": "nodemon --watch src -e html,vue,ts,less --debug -x 'npm run build'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:benkunHUA/rule-editor.git"
+  },
+  "author": "haobenkun <haobenkun@gmail.cn>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry-npm.com"
+  },
+  "dependencies": {
+    "@formily/reactive": "^2.2.17",
+    "assert": "^2.0.0",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.20",
+    "rxjs": "^6.6.7",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "jest": "^27.5.1",
+    "moment": "^2.29.1",
+    "ts-jest": "^27.1.3",
+    "tslint": "^6.1.3",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^4.5.5"
+  }
+}
