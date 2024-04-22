@@ -5,11 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "bootstrap": "lerna bootstrap && lerna run build",
-    "publish": "lerna run build && lerna version && lerna publish from-package --skip-npm && node ./scripts/publish.js",
-    "form": "lerna run build && cd packages/mdf-ency-form-template && enpm run dev",
-    "list": "lerna run build && cd packages/mdf-ency-list-template && enpm run dev",
-    "sdk": "lerna run build && cd packages/mdf-render-sdk && enpm run dev"
+    "bootstrap": "yarn && lerna run build",
+    "publish": "lerna run build && lerna version && lerna publish from-package --skip-npm && node ./scripts/publish.js"
   },
   "devDependencies": {
     "lerna": "^6.6.1",
