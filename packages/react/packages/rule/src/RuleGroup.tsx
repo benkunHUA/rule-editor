@@ -1,20 +1,56 @@
-import React from 'react'
-import classnames from 'classnames'
+import React from "react";
+import classnames from "classnames";
+import RuleItem from "./RuleItem";
+import type {
+  RuleNode,
+  RuleGroup as RuleGroupType,
+} from "@ben/rule-editor-core";
 
 export interface RuleGroupProps {
-  ruleNode?: Record<string, any>;
+  ruleNode: RuleNode;
+  renderContent: (v: RuleNode) => JSX.Element[];
+  singleChild?: boolean;
+  setReleationPosition?: () => void;
+  deep: number;
+  visible?: boolean;
 }
 
-const Button: React.FC<RuleGroupProps> = (props) => {
-  const { ruleNode } = props
+const RuleGroup: React.FC<RuleGroupProps> = (props) => {
+  const {
+    ruleNode,
+    singleChild,
+    renderContent,
+    setReleationPosition,
+    deep,
+    visible,
+  } = props;
 
-  const classes = classnames('rule-group')
+  const classes = classnames("rule-group", {
+    "single-child": singleChild,
+  });
   return (
-    <div
-      className={classes}
-    >
+    <div id={ruleNode.key} className={classes}>
+      {(ruleNode as RuleGroupType).childNodes.map((item) =>
+        item.type === "group" ? (
+          <RuleGroup
+            key={item.key}
+            ruleNode={item}
+            renderContent={renderContent}
+            setReleationPosition={setReleationPosition}
+            deep={deep + 1}
+            visible={visible}
+          ></RuleGroup>
+        ) : (
+          <RuleItem
+            key={item.key}
+            ruleNode={item}
+            renderContent={renderContent}
+            setReleationPosition={setReleationPosition}
+          ></RuleItem>
+        )
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default RuleGroup;
