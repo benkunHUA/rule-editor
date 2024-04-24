@@ -1,15 +1,18 @@
 .rule-group {
-  padding: 10px;
-  padding-right: 40px;
-  margin-left: 20px;
-  border: 1px dashed #e4e4e4;
+  padding-bottom: 10px;
   position: relative;
+  &__content {
+    position: relative;
+    padding: 10px;
+    padding-right: 40px;
+    margin-left: 20px;
+    border: 1px dashed #e4e4e4;
+  }
   .delete-btn {
     top: calc(50% - 8px);
     left: -20px;
   }
   .rule-action-wrap {
-    margin-top: 10px;
     .rule-action-btn {
       display: inline-block;
       padding: 10px 20px;
@@ -21,14 +24,14 @@
       background: #fff;
       border: 1px solid #dcdfe6;
       color: #606266;
-      -webkit-appearance: none;
+      appearance: none;
       text-align: center;
       box-sizing: border-box;
       outline: none;
       margin: 0;
       transition: .1s;
       font-weight: 500;
-      -moz-user-select: none;
+      user-select: none;
       -webkit-user-select: none;
       &:focus,
       &:hover {
@@ -41,29 +44,15 @@
       margin-left: 10px;
     }
   }
-  .releation-wrap {
+  .releation-custom {
     position: absolute;
-    right: 20px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    &.hidden {
-      display: none;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background-color: #ddd;
-    }
+    right: 10px;
+    top: 50%;
+    transform: translateY(-30px);
+    cursor: pointer;
+    display: block;
+    text-align: center;
     .releation {
-      position: absolute;
-      right: -12px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
       display: block;
       width: 20px;
       height: 20px;
@@ -74,7 +63,6 @@
       font-weight: 400;
       color: #222;
       line-height: 18px;
-      text-align: center;
     }
   }
 }
@@ -82,8 +70,8 @@
 .rule-item {
   position: relative;
   display: flex;
-  margin: 10px -5px;
   padding-left: 20px;
+  padding-bottom: 10px;
   .delete-btn {
     top: 3px;
     left: 4px;
@@ -93,12 +81,6 @@
     >.el-select {
       width: 100%;
     }
-  }
-  &:nth-of-type(1) {
-    margin-top: 0;
-  }
-  &:last-of-type {
-    margin-bottom: 10px;
   }
   .comp {
     margin: 0 5px;
@@ -113,9 +95,19 @@
     cursor: pointer;
   }
   &.single-child {
-    &::after {
+    &::after, &::before {
       display: none;
     }
+  }
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ddd;
   }
   &::after {
     content: '';
@@ -124,13 +116,18 @@
     border-top: 1px solid #ddd;
     display: inline-block;
     top: 50%;
-    right: -14px;
+    right: -20px;
     transform: translateY(-50%);
   }
-}
-
-.rule-group {
-  &::after {
-    right: -20px;
+  &.first {
+    &::before {
+      top: 50%;
+    }
   }
+  &.last {
+    &::before {
+      bottom: 50%;
+    }
+  }
+  
 }
