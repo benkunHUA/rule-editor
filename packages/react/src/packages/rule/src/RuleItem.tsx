@@ -17,7 +17,7 @@ const RuleItem: React.FC<RuleItemProps> = (props) => {
   })
   return (
     <div className={classes}>
-      { ...renderContent(ruleNode) }
+      { renderContent(ruleNode) }
     </div>
   )
 }
