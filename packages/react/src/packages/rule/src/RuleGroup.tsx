@@ -22,7 +22,9 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
   const { ruleNode, singleChild, renderContent, deep, visible, customClass } =
     props;
 
-  const toggleReleation = () => {};
+  const childNodes = (ruleNode as RuleGroupType).childNodes
+
+  const toggleReleation = () => { };
 
   const classes = classnames("rule-group", customClass, {
     "single-child": singleChild,
@@ -30,7 +32,7 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
   return (
     <div className={classes}>
       <div className="rule-group__content">
-        {(ruleNode as RuleGroupType).childNodes.map((item, index) =>
+        {childNodes.map((item, index) =>
           item.type === "group" ? (
             <RuleGroup
               key={item.key}
@@ -41,9 +43,9 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
               customClass={
                 index === 0
                   ? "first"
-                  : index === (ruleNode as RuleGroupType).childNodes.length - 1
-                  ? "last"
-                  : ""
+                  : index === childNodes.length - 1
+                    ? "last"
+                    : ""
               }
             ></RuleGroup>
           ) : (
@@ -54,9 +56,9 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
               customClass={
                 index === 0
                   ? "first"
-                  : index === (ruleNode as RuleGroupType).childNodes.length - 1
-                  ? "last"
-                  : ""
+                  : index === childNodes.length - 1
+                    ? "last"
+                    : ""
               }
             ></RuleItem>
           )
@@ -65,6 +67,7 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
         <ActionBtn deep={deep} ruleNode={ruleNode}></ActionBtn>
         <RuleRelation
           relation={(ruleNode as RuleGroupType).relation}
+          deep={deep}
           toggleReleation={toggleReleation}
         ></RuleRelation>
       </div>
