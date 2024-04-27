@@ -29,11 +29,15 @@ const ActionBtn: React.FC<ActionBtnProps> = (props) => {
           )
       }
       {
-        deep < ruleNode.rule.deep && customActionGroup 
-          ? customActionGroup(addRuleGroup, deep) 
-          : (
-            <button className="rule-action-btn group" onClick={addRuleGroup}>增加组</button>
+        deep < ruleNode.rule.deep
+          ? (
+            customActionGroup
+              ? customActionGroup(addRuleGroup, deep) 
+              : (
+                <button className="rule-action-btn group" onClick={addRuleGroup}>增加组</button>
+              )
           )
+          : null
       }
     </div>
   );

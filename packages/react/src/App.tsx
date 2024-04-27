@@ -38,12 +38,7 @@ function App() {
   }
   return (
     <div className="App">
-      <RuleProvider 
-        customDelete={<span>X</span>}
-        customActionItem={addItem}
-        customActionGroup={addGroup}
-        customRelation={relation}
-      >
+      <RuleProvider>
         <RuleGroup
           ruleNode={ruleNode.root}
           renderContent={renderContent}

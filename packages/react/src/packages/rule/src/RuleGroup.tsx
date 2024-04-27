@@ -1,13 +1,15 @@
 import React from "react";
+import type {
+  RuleNode,
+  RuleGroup as RuleGroupType,
+} from "@ben/rule-editor-core";
+import { observer } from "@formily/react";
 import classnames from "classnames";
 import RuleItem from "./RuleItem";
 import DeleteBtn from "./DeleteBtn";
 import ActionBtn from "./ActionBtn";
 import RuleRelation from "./RuleRelation";
-import type {
-  RuleNode,
-  RuleGroup as RuleGroupType,
-} from "@ben/rule-editor-core";
+
 
 export interface RuleGroupProps {
   ruleNode: RuleNode;
@@ -18,13 +20,15 @@ export interface RuleGroupProps {
   customClass: string;
 }
 
-const RuleGroup: React.FC<RuleGroupProps> = (props) => {
-  const { ruleNode, singleChild, renderContent, deep, visible, customClass } =
+const RuleGroup: React.FC<RuleGroupProps> = observer((props) => {
+  const { ruleNode, renderContent, deep, visible, customClass, singleChild } =
     props;
 
-  const childNodes = (ruleNode as RuleGroupType).childNodes
+  const childNodes = (ruleNode as RuleGroupType).childNodes;
 
-  const toggleReleation = () => { };
+  const toggleReleation = () => { 
+    (ruleNode as RuleGroupType).toggleReleation();
+  };
 
   const classes = classnames("rule-group", customClass, {
     "single-child": singleChild,
@@ -40,6 +44,7 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
               renderContent={renderContent}
               deep={deep + 1}
               visible={visible}
+              singleChild={childNodes.length <= 1}
               customClass={
                 index === 0
                   ? "first"
@@ -53,6 +58,7 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
               key={item.key}
               ruleNode={item}
               renderContent={renderContent}
+              singleChild={childNodes.length <= 1}
               customClass={
                 index === 0
                   ? "first"
@@ -65,14 +71,18 @@ const RuleGroup: React.FC<RuleGroupProps> = (props) => {
         )}
         <DeleteBtn ruleNode={ruleNode}></DeleteBtn>
         <ActionBtn deep={deep} ruleNode={ruleNode}></ActionBtn>
-        <RuleRelation
-          relation={(ruleNode as RuleGroupType).relation}
-          deep={deep}
-          toggleReleation={toggleReleation}
-        ></RuleRelation>
+        {
+          childNodes.length > 1 && (
+            <RuleRelation
+              relation={(ruleNode as RuleGroupType).relation}
+              deep={deep}
+              toggleReleation={toggleReleation}
+            ></RuleRelation>
+          )
+        }
       </div>
     </div>
   );
-};
+});
 
 export default RuleGroup;
