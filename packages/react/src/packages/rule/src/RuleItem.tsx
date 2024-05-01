@@ -1,7 +1,8 @@
 import React from "react";
+import { observer } from "@formily/react";
 import classnames from "classnames";
-import DeleteBtn from "./DeleteBtn";
 import type { RuleNode } from "@ben/rule-editor-core";
+import DeleteBtn from "./DeleteBtn";
 
 export interface RuleItemProps {
   ruleNode: RuleNode;
@@ -10,7 +11,7 @@ export interface RuleItemProps {
   customClass: string;
 }
 
-const RuleItem: React.FC<RuleItemProps> = (props) => {
+const RuleItem: React.FC<RuleItemProps> = observer((props) => {
   const { ruleNode, singleChild, renderContent, customClass } = props;
   const classes = classnames("rule-item", customClass, {
     "single-child": singleChild,
@@ -21,6 +22,6 @@ const RuleItem: React.FC<RuleItemProps> = (props) => {
       {renderContent(ruleNode)}
     </div>
   );
-};
+});
 
 export default RuleItem;

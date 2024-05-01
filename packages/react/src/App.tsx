@@ -1,11 +1,30 @@
 import React from 'react'
 import { Rule } from '@ben/rule-editor-core'
 import RuleGroup from './packages/rule/src/RuleGroup'
+import RuleProvider from './packages/rule/src/RuleProvider'
 
 import { values, dataSource } from './mock/ruleData'
 
 import './packages/rule/src/style.scss'
 import './index.scss'
+
+function addItem(addFn: () => void, deep: number) {
+  return (
+    <span onClick={addFn}>新增项</span>
+  )
+}
+
+function addGroup(addFn: () => void, deep: number) {
+  return (
+    <span onClick={addFn}>新增组</span>
+  )
+}
+
+function relation(relation: string, deep: number) {
+  return (
+    <span>{relation}</span>
+  )
+}
 
 function App() {
   const ruleNode = new Rule({ data: values, dataSource })
@@ -19,13 +38,15 @@ function App() {
   }
   return (
     <div className="App">
-      <RuleGroup
-        ruleNode={ruleNode.root}
-        renderContent={renderContent}
-        deep={1}
-        singleChild={true}
-        customClass=''
-      ></RuleGroup>
+      <RuleProvider>
+        <RuleGroup
+          ruleNode={ruleNode.root}
+          renderContent={renderContent}
+          deep={1}
+          singleChild={true}
+          customClass=''
+        ></RuleGroup>
+      </RuleProvider>
     </div>
   );
 }

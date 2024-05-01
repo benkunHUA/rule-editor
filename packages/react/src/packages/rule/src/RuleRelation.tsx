@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { RuleContext } from '../../share/context';
 
 interface RuleRelationProps {
   relation: string;
+  deep: number;
   toggleReleation: () => void;
 }
 const RuleRelation: React.FC<RuleRelationProps> = (props) => {
-  const { relation, toggleReleation } = props;
+  const { relation, toggleReleation, deep } = props;
+  const { customRelation } = useContext(RuleContext);
 
   const handleClick = () => {
     toggleReleation();
@@ -13,7 +16,11 @@ const RuleRelation: React.FC<RuleRelationProps> = (props) => {
 
   return (
     <div className="releation-custom" onClick={handleClick}>
-      <span className="releation">{relation === "||" ? "或" : "且"}</span>
+      {
+        customRelation ? customRelation(relation, deep) : (
+          <span className="releation">{relation === "||" ? "或" : "且"}</span>
+        )
+      }
     </div>
   );
 };
