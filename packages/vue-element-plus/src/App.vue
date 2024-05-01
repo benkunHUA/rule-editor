@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <ExampleBase />
-    <ExampleOperate />
+    <!-- <ExampleOperate />
     <ExampleValueOption />
     <ExamplePassword />
     <ExampleCascader />
@@ -10,7 +10,7 @@
     <ExampleHandle />
     <ExampleValidate />
     <ExampleCustomForm />
-    <ExampleActionSlot />
+    <ExampleActionSlot /> -->
   </div>
 </template>
 <script setup lang="ts">

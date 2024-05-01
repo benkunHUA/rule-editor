@@ -20,8 +20,8 @@ let values = {
     {
       item: [
         {
-          label: '枚举字段',
-          value: 1,
+          label: '文本字段',
+          value: 2,
         },
         {
           label: null,
@@ -33,43 +33,6 @@ let values = {
         }
       ]
     },
-    {
-      relation: '&&',
-      group: [
-        {
-          item: [
-            {
-              label: '文本字段',
-              value: 2,
-            },
-            {
-              label: null,
-              value: null
-            },
-            {
-              label: null,
-              value: null
-            }
-          ]
-        },
-        {
-          item: [
-            {
-              label: '整数字段',
-              value: 3,
-            },
-            {
-              label: null,
-              value: null
-            },
-            {
-              label: null,
-              value: null
-            }
-          ]
-        }
-      ]
-    }
   ]
 }
 

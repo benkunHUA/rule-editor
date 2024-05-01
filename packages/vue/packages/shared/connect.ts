@@ -24,7 +24,7 @@ export const connect = <T extends Record<string, any>>(
           })
         }
         if (defaultProps) {
-          data = Object.assign(defaultProps, data)
+          data = Object.assign({}, defaultProps, data)
         }
         return h(tag, data, slots)
       }

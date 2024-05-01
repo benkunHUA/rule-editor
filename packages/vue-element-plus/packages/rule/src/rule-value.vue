@@ -1,6 +1,6 @@
 <script lang='ts'>
 import { defineComponent, h, inject, ref } from 'vue'
-import { RuleSoltsKey, ChangeKey } from '@ben/rule-editor-vue'
+import { ChangeKey } from '@ben/rule-editor-vue'
 import RuleResult from './rule-result.vue'
 export default defineComponent({
   name: 'RuleValue',
@@ -13,23 +13,9 @@ export default defineComponent({
       type: Object,
       default: () => ({}),
     },
-    remoteMethod: Function,
-    fieldChange: Function,
-    resultFocus: Function,
   },
   setup(props: any) {
-    const {
-      itemComp,
-      ruleItem,
-      remoteMethod,
-      fieldChange,
-      resultFocus,
-    } = props
-
-    function setData(data: any) {
-      props.itemComp.setLabel(data.label)
-      props.itemComp.setValue(data.value)
-    }
+    const { itemComp, ruleItem } = props
 
     const formValue = ref('')
 
@@ -45,33 +31,22 @@ export default defineComponent({
       onChange('value', value)
     }
 
-    const ruleSolts: any = inject(RuleSoltsKey)
     const onChange = inject(ChangeKey) as (t: string, v: any) => void
     return () => {
       return h('div', { class: 'comp rule-result' }, [
-        ruleSolts?.value
-          ? ruleSolts?.value({
-              data: props.itemComp.data,
-              ruleItem: props.ruleItem.data,
-              setData: setData,
-            })
-          : typeof ruleItem.formType === 'string'
+        typeof ruleItem.formType === 'string'
           ? h(RuleResult, {
-              itemComp,
-              ruleItem,
-              remoteMethod,
-              fieldChange,
-              resultFocus,
-            })
+            itemComp,
+            ruleItem,
+          })
           : h(ruleItem.formType, {
-              onChange: handleChange,
-              modelValue: formValue.value,
-            }),
+            onChange: handleChange,
+            modelValue: formValue.value,
+          }),
       ])
     }
   },
 })
 </script>
 
-<style>
-</style>
+<style></style>

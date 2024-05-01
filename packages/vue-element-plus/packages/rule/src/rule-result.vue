@@ -99,6 +99,11 @@
   ></r-cascader>
 </template>
 
+<script lang="ts">
+export default {
+  name: 'RuleResult'
+}
+</script>
 <script lang="ts" setup>
 import { onMounted, ref, computed, inject } from 'vue'
 import type { DataItemType } from '@ben/rule-editor-core'

@@ -1,10 +1,10 @@
 <template>
   <div class="comp rule-operator">
-    <el-select 
-      size="small" 
+    <el-select
       :clearable="false"
       :readonly="readonly"
       :disabled="disabled"
+      placeholder="请选择"
       v-model="props.itemComp.value"  
       @change="handleChange"
     >
@@ -17,7 +17,11 @@
     </el-select>
   </div>
 </template>
-
+<script lang="ts">
+export default {
+  name: 'RuleOperator'
+}
+</script>
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { ElSelect, ElOption } from 'element-plus'

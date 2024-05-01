@@ -68,11 +68,11 @@ export default defineComponent({
           : h(
               ElSelect,
               {
-                size: "small",
                 modelValue: props.itemComp.value,
                 clearable: false,
                 readonly: readonly,
                 disabled: disabled,
+                placeholder: '请选择',
                 onChange: handleChange,
               },
               () =>

@@ -1,23 +1,18 @@
 import { define, observable } from '@formily/reactive'
 import DataSource from './data-source'
 import RuleGroup from './rule-group'
-import { IndicatorType, Item } from '../type'
+import { IndicatorType } from '../type'
 
 import {
   NodeDataType,
   RuleNode,
   PropsType,
-  OptionPropsType,
-  DataTypePropsType,
 } from '../type/index'
 
 interface RuleOption {
   data?: NodeDataType;
   indicators?: IndicatorType[];
-  dataSource?: Item[];
   props?: PropsType;
-  optionProps?: OptionPropsType;
-  dataTypeProps?: DataTypePropsType;
   deep?: number;
   readonly?: boolean;
   disabled?: boolean;
@@ -50,9 +45,6 @@ export default class Rule {
   initDataSource(option: RuleOption) {
     this.dataSource = new DataSource({
       indicators: option.indicators || [],
-      optionProps: option.optionProps,
-      dataTypeProps: option.dataTypeProps,
-      dataSource: option.dataSource || [],
     })
   }
 

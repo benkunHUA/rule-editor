@@ -1,6 +1,13 @@
 <template>
-  <div 
-    :class=" `rule-builder delete-${layoutConfig.delete} relation-${layoutConfig.relation} ${readonly || disabled ? 'disabled' : ''}`"
+  <div
+    :class="[
+      'rule-builder',
+      `delete-${layoutConfig.delete}`,
+      `relation-${layoutConfig.relation}`,
+      {
+        disabled: readonly || disabled
+      }
+    ]"
   >
     <rule-group
       :deep="1"
@@ -27,14 +34,8 @@ import RuleValue from './rule-value.vue'
 
 const props = defineProps([
   'data', 
-  'indicators', 
-  'dataSource', 
-  'props', 
-  'optionProps', 
-  'dataTypeProps', 
-  'remoteMethod',
-  'fieldChange',
-  'resultFocus',
+  'indicators',
+  'props',
   'layout',
   'deep',
   'readonly',
@@ -49,10 +50,7 @@ const emit = defineEmits<{
 const ruleNode = reactive(new Rule({
   data: props.data,
   indicators: props.indicators,
-  dataSource: props.dataSource,
   props: props.props,
-  optionProps: props.optionProps,
-  dataTypeProps: props.dataTypeProps,
   deep: props.deep,
   readonly: props.readonly || false,
   disabled: props.disabled || false,
@@ -78,8 +76,7 @@ function renderContent(h: any, ruleItem: RuleItem) {
     if (itemComp.type === 'field') {
       return h(RuleField, { 
         key: itemComp.key, 
-        itemComp, ruleItem, 
-        fieldChange: props.fieldChange 
+        itemComp, ruleItem,
       })
     }
     if (itemComp.type === 'operator') {
@@ -88,10 +85,7 @@ function renderContent(h: any, ruleItem: RuleItem) {
     if (itemComp.type === 'value') {
       return h(RuleValue, { 
         key: itemComp.key, itemComp, 
-        ruleItem, 
-        remoteMethod: props.remoteMethod, 
-        fieldChange: props.fieldChange,
-        resultFocus: props.resultFocus
+        ruleItem,
       })
     }
   })
