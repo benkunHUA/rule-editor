@@ -1,4 +1,4 @@
-declare module '@ennew/rule-builder-vue' {
+declare module '@ben/rule-editor-vue' {
   import { DefineComponent } from 'vue'
   import type { InjectionKey } from 'vue'
 
