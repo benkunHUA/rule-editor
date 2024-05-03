@@ -122,9 +122,6 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-  remoteMethod: Function,
-  fieldChange: Function,
-  resultFocus: Function,
 })
 
 const optionLoading = ref<boolean>(false)
@@ -168,11 +165,6 @@ function handleRemote(keyword: string, initFlag = false) {
     })
     return
   }
-  if (typeof props.remoteMethod === 'function') {
-    props.remoteMethod(props.ruleItem.data, keyword, initFlag, (value: DataItemType[]) => {
-      props.itemComp.setOptions(value)
-    })
-  }
 }
 
 function handleChange(value: any, label: any) {
@@ -205,18 +197,6 @@ function handleFocus() {
     optionLoading.value = true
     props.ruleItem.indicator.getOptions(props.ruleItem.data, () => {
       optionLoading.value = false
-    })
-    return
-  }
-  // 全局定义了选项获取方式
-  if (typeof props.resultFocus === 'function') {
-    optionLoading.value = true
-    props.resultFocus(props.ruleItem.data, (value: DataItemType[] | null) => {
-      optionLoading.value = false
-      if (value === null) {
-        return
-      }
-      props.ruleItem.indicator.setOptions()
     })
   }
 }

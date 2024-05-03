@@ -20,8 +20,8 @@ let values = {
     {
       item: [
         {
-          label: '文本字段',
-          value: 2,
+          label: '枚举字段',
+          value: 1,
         },
         {
           label: null,
