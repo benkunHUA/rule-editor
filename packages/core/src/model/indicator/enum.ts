@@ -1,5 +1,4 @@
 import Common from './common'
-import Select from '../form/select'
 import { DataItemType, OperateOptionType, CommonIndicatorType, Group } from '../../type/index'
 import { dataTypeOptionMap } from '../../shared/option'
 
@@ -28,8 +27,8 @@ export default class Enum extends Common {
     }
     if (!props.formMap) {
       this.formMap = {
-        select: new Select({}),
-        multiple: new Select({ multiple: true }),
+        select: {},
+        multiple: {},
       }
     }
   }

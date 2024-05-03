@@ -3,7 +3,7 @@ import { connect } from "@ben/rule-editor-vue";
 import { ElInput } from "element-plus";
 import { defineComponent, h } from "vue";
 export default defineComponent({
-  name: "RInput",
+  name: "RuleInput",
   props: {
     modelValue: {
       type: String,

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <ExampleBase />
-    <!-- <ExampleOperate />
     <ExampleValueOption />
+    <el-time-picker :modelValue="value1" placeholder="Arbitrary time" @input.native="handlechange" />
+    <!-- <ExampleOperate />
     <ExamplePassword />
     <ExampleCascader />
     <ExampleDisabled />
@@ -14,6 +15,7 @@
   </div>
 </template>
 <script setup lang="ts">
+import { ref } from 'vue'
 import ExampleBase from './examples/base.vue'
 import ExampleOperate from './examples/operate.vue'
 import ExamplePassword from './examples/password.vue'
@@ -25,6 +27,14 @@ import ExampleHandle from './examples/handle.vue'
 import ExampleValidate from './examples/validate.vue'
 import ExampleCustomForm from './examples/custom-form-rule.vue'
 import ExampleActionSlot from './examples/slot-action.vue'
+import { ElTimePicker } from "element-plus";
+
+let value1 = ref()
+
+function handlechange(val: string) {
+  console.log(val)
+}
+
 </script>
 <style lang="scss">
 #app {

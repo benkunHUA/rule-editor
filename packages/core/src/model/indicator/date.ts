@@ -1,5 +1,4 @@
 import Common from './common'
-import DatePicker from '../form/date-picker'
 import { OperateOptionType, CommonIndicatorType } from '../../type/index'
 import { dataTypeOptionMap } from '../../shared/option'
 
@@ -16,8 +15,8 @@ export default class Date extends Common {
     this.operators = props.operators || dataTypeOptionMap.date
     if (!props.formMap) {
       this.formMap = {
-        date: new DatePicker({}),
-        daterange: new DatePicker({ type: 'daterange' }),
+        date: {},
+        daterange: {},
       }
     }
   }

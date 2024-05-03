@@ -5,7 +5,7 @@ import { connect } from "@ben/rule-editor-vue";
 import type { DataItemType } from "@ben/rule-editor-core";
 import type { PropType } from "vue";
 export default defineComponent({
-  name: "RSelect",
+  name: "RuleSelect",
   props: {
     options: {
       type: Array as PropType<DataItemType[]>,
@@ -47,6 +47,7 @@ export default defineComponent({
     );
 
     function handleChange(value: any) {
+      console.log(value)
       ctx.emit("update:modelValue", value);
       ctx.emit("change", value);
     }
@@ -67,7 +68,7 @@ export default defineComponent({
         RuleSelect,
         {
           onChange: handleChange,
-          onfocus: handleFocus,
+          onFocus: handleFocus,
           remoteMethod: handleRemote,
           modelValue: props.modelValue,
         },
