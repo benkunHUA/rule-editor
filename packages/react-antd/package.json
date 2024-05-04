@@ -1,0 +1,69 @@
+{
+  "name": "@rule-editor/react-antd",
+  "version": "1.1.0",
+  "description": "rule-editor-react-antd",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/rule-editor-react-antd.umd.cjs",
+  "module": "./dist/rule-editor-react-antd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/rule-editor-react-antd.js",
+      "require": "./dist/rule-editor-react-antd.umd.cjs"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@formily/react": "^2.3.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.96",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "antd": "^5.17.0",
+    "classnames": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.75.0",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:benkunHUA/rule-editor.git"
+  },
+  "author": "haobenkun <haobenkun@gmail.cn>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry-npm.com"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -5,13 +5,13 @@
       :readonly="readonly"
       :disabled="disabled"
       placeholder="请选择"
-      v-model="props.itemComp.value"  
+      v-model="props.itemComp.value"
       @change="handleChange"
     >
-      <el-option 
+      <el-option
         v-for="item in operators"
         :key="item.value"
-        :label="item.label" 
+        :label="item.label"
         :value="item.value"
       ></el-option>
     </el-select>
@@ -19,45 +19,45 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'RuleOperator'
-}
+  name: "RuleOperator",
+};
 </script>
 <script setup lang="ts">
-import { computed, inject } from 'vue'
-import { ElSelect, ElOption } from 'element-plus'
-import type { OperateOptionType } from '@ben/rule-editor-core'
-import { ChangeKey } from '@ben/rule-editor-vue'
+import { computed, inject } from "vue";
+import { ElSelect, ElOption } from "element-plus";
+import type { OperateOptionType } from "@rule-editor/core";
+import { ChangeKey } from "@rule-editor/vue";
 const props = defineProps({
   itemComp: {
     type: Object,
-    default: () => ({})
+    default: () => ({}),
   },
   ruleItem: {
     type: Object,
-    default: () => ({})
-  }
-})
+    default: () => ({}),
+  },
+});
 
-const onChange = inject(ChangeKey) as (t: string, v: any) => void
+const onChange = inject(ChangeKey) as (t: string, v: any) => void;
 
 const operators = computed(() => {
   if (!props.ruleItem.indicator) {
-    return []
+    return [];
   }
-  return props.ruleItem.indicator.operators
-})
+  return props.ruleItem.indicator.operators;
+});
 const readonly = props.itemComp.rule.readonly;
 const disabled = props.itemComp.rule.disabled;
 
-const handleChange = (val: number)=>{
-  const option = operators.value.find((o: OperateOptionType) => o.value === val)
-  props.ruleItem.handleOperateChange(option)
-  props.itemComp.setLabel(option.label)
-  props.itemComp.setValue(option.value)
-  onChange('operator', option)
-}
+const handleChange = (val: number) => {
+  const option = operators.value.find(
+    (o: OperateOptionType) => o.value === val
+  );
+  props.ruleItem.handleOperateChange(option);
+  props.itemComp.setLabel(option.label);
+  props.itemComp.setValue(option.value);
+  onChange("operator", option);
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

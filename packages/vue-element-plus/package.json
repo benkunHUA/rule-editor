@@ -1,5 +1,5 @@
 {
-  "name": "@ben/rule-editor-vue-element-plus",
+  "name": "@rule-editor/vue-element-plus",
   "version": "1.1.0",
   "description": "rule-editor-vue-element-plus",
   "type": "module",
@@ -34,8 +34,8 @@
     "registry": "https://registry-npm.com"
   },
   "dependencies": {
-    "@ben/rule-editor-core": "^1.1.0",
-    "@ben/rule-editor-vue": "^1.1.0",
+    "@rule-editor/core": "^1.1.0",
+    "@rule-editor/vue": "^1.1.0",
     "element-plus": "^2.7.2",
     "lerna": "^8.1.2",
     "vue": "^3.3.10",

@@ -106,8 +106,8 @@ export default {
 </script>
 <script lang="ts" setup>
 import { onMounted, ref, computed, inject } from "vue";
-import type { DataItemType } from "@ben/rule-editor-core";
-import { ChangeKey } from "@ben/rule-editor-vue";
+import type { DataItemType } from "@rule-editor/core";
+import { ChangeKey } from "@rule-editor/vue";
 import RSelect from "../../form/select.vue";
 import RInput from "../../form/input.vue";
 import RDatePicker from "../../form/date-picker.vue";
@@ -133,12 +133,12 @@ const formType = computed<keyof typeof defaultFormConfig>(() => {
 });
 
 const formConfig = computed(() => {
-  let result = props.ruleItem?.indicator?.getForm(formType.value) || {}
+  let result = props.ruleItem?.indicator?.getForm(formType.value) || {};
   if (Object.keys(result).length === 0) {
-    result = defaultFormConfig[formType.value] || {}
+    result = defaultFormConfig[formType.value] || {};
   }
-  return result
-})
+  return result;
+});
 
 const options = computed(() => {
   if (!props.ruleItem.indicator) {

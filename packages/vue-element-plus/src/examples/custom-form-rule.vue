@@ -11,8 +11,8 @@
 
 <script setup lang="ts">
 import { RuleBuilder } from "../../packages/rule/index";
-import { Indicator, Form } from "@ben/rule-editor-core";
-import { connect } from "@ben/rule-editor-vue";
+import { Indicator, Form } from "@rule-editor/core";
+import { connect } from "@rule-editor/vue";
 import { ElInput } from "element-plus";
 
 let values = {

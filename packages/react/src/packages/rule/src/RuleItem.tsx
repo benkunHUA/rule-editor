@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "@formily/react";
 import classnames from "classnames";
-import type { RuleNode } from "@ben/rule-editor-core";
+import type { RuleNode } from "@rule-editor/core";
 import DeleteBtn from "./DeleteBtn";
 
 export interface RuleItemProps {

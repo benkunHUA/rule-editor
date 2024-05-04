@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { Rule } from '@ben/rule-editor-core'
+import { Rule } from '@rule-editor/core'
 import RuleGroup from '../packages/rule/src/rule-group.vue'
 import RuleProvide from '../packages/rule/src/rule-provide.vue'
 import { values, dataSource } from './mock/ruleData'

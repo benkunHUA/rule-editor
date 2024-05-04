@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { RuleBuilder } from "../../packages/rule/index";
-import { Indicator } from "@ben/rule-editor-core";
+import { Indicator } from "@rule-editor/core";
 
 let values = {
   relation: "||",

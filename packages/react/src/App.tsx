@@ -1,5 +1,5 @@
 import React from 'react'
-import { Rule } from '@ben/rule-editor-core'
+import { Rule } from '@rule-editor/core'
 import RuleGroup from './packages/rule/src/RuleGroup'
 import RuleProvider from './packages/rule/src/RuleProvider'
 

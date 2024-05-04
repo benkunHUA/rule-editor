@@ -1,5 +1,5 @@
 {
-  "name": "@ben/rule-editor-core",
+  "name": "@rule-editor/core",
   "version": "1.1.0",
   "description": "rule-editor-core",
   "main": "lib/index.js",

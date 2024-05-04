@@ -5,8 +5,8 @@
       `delete-${layoutConfig.delete}`,
       `relation-${layoutConfig.relation}`,
       {
-        disabled: readonly || disabled
-      }
+        disabled: readonly || disabled,
+      },
     ]"
   >
     <rule-group
@@ -19,97 +19,102 @@
 </template>
 <script lang="ts">
 export default {
-  name: 'RuleBuilder',
-}
+  name: "RuleBuilder",
+};
 </script>
 <script lang="ts" setup>
-import { reactive, provide, computed, getCurrentInstance } from 'vue'
-import type { ComponentInternalInstance } from 'vue'
-import { Rule, RuleComp, RuleItem } from '@ben/rule-editor-core'
-import type { NodeDataType, IndicatorType } from '@ben/rule-editor-core'
-import { RuleGroup, RuleSoltsKey, ChangeKey } from '@ben/rule-editor-vue'
-import RuleField from './rule-field.vue'
-import RuleOperator from './rule-operator.vue'
-import RuleValue from './rule-value.vue'
+import { reactive, provide, computed, getCurrentInstance } from "vue";
+import type { ComponentInternalInstance } from "vue";
+import { Rule, RuleComp, RuleItem } from "@rule-editor/core";
+import type { NodeDataType, IndicatorType } from "@rule-editor/core";
+import { RuleGroup, RuleSoltsKey, ChangeKey } from "@rule-editor/vue";
+import RuleField from "./rule-field.vue";
+import RuleOperator from "./rule-operator.vue";
+import RuleValue from "./rule-value.vue";
 
 const props = defineProps([
-  'data', 
-  'indicators',
-  'props',
-  'layout',
-  'deep',
-  'readonly',
-  'disabled',
-  'visible'
-])
+  "data",
+  "indicators",
+  "props",
+  "layout",
+  "deep",
+  "readonly",
+  "disabled",
+  "visible",
+]);
 
 const emit = defineEmits<{
-  change: [type: string, data: any]
-}>()
+  change: [type: string, data: any];
+}>();
 
-const ruleNode = reactive(new Rule({
-  data: props.data,
-  indicators: props.indicators,
-  props: props.props,
-  deep: props.deep,
-  readonly: props.readonly || false,
-  disabled: props.disabled || false,
-}))
+const ruleNode = reactive(
+  new Rule({
+    data: props.data,
+    indicators: props.indicators,
+    props: props.props,
+    deep: props.deep,
+    readonly: props.readonly || false,
+    disabled: props.disabled || false,
+  })
+);
 
-const instance = getCurrentInstance() as ComponentInternalInstance
-provide(RuleSoltsKey, instance?.proxy?.$slots)
-provide(ChangeKey, handleChange)
+const instance = getCurrentInstance() as ComponentInternalInstance;
+provide(RuleSoltsKey, instance?.proxy?.$slots);
+provide(ChangeKey, handleChange);
 
 const layoutConfig = computed(() => {
-  return props.layout || {
-    delete: 'left',
-    relation: 'right'
-  }
-})
+  return (
+    props.layout || {
+      delete: "left",
+      relation: "right",
+    }
+  );
+});
 
 function handleChange(type: string, data: any) {
-  emit('change', type, data)
+  emit("change", type, data);
 }
 
 function renderContent(h: any, ruleItem: RuleItem) {
   return ruleItem.childNodes.map((itemComp: RuleComp) => {
-    if (itemComp.type === 'field') {
-      return h(RuleField, { 
-        key: itemComp.key, 
-        itemComp, ruleItem,
-      })
-    }
-    if (itemComp.type === 'operator') {
-      return h(RuleOperator, { key: itemComp.key, itemComp, ruleItem })
-    }
-    if (itemComp.type === 'value') {
-      return h(RuleValue, { 
-        key: itemComp.key, itemComp, 
+    if (itemComp.type === "field") {
+      return h(RuleField, {
+        key: itemComp.key,
+        itemComp,
         ruleItem,
-      })
+      });
     }
-  })
+    if (itemComp.type === "operator") {
+      return h(RuleOperator, { key: itemComp.key, itemComp, ruleItem });
+    }
+    if (itemComp.type === "value") {
+      return h(RuleValue, {
+        key: itemComp.key,
+        itemComp,
+        ruleItem,
+      });
+    }
+  });
 }
 function getValue() {
-  return ruleNode.root.data
+  return ruleNode.root.data;
 }
 function setValue(data: NodeDataType) {
-  ruleNode.initNode(data)
+  ruleNode.initNode(data);
 }
 function setIndicators(indicators: IndicatorType[]) {
-  ruleNode.dataSource.setIndicator(indicators)
+  ruleNode.dataSource.setIndicator(indicators);
 }
 
 defineExpose({
   getValue,
   setValue,
-  setIndicators
-})
-
+  setIndicators,
+});
 </script>
 
 <style lang="scss">
-@import 'element-plus/theme-chalk/index.css';
+@import "element-plus/theme-chalk/index.css";
 .rule-builder {
   width: 900px;
   > .rule-group {
@@ -150,7 +155,7 @@ defineExpose({
       box-sizing: border-box;
       outline: none;
       margin: 0;
-      transition: .1s;
+      transition: 0.1s;
       font-weight: 500;
       &:focus,
       &:hover {
@@ -159,7 +164,7 @@ defineExpose({
         background-color: #ecf5ff;
       }
     }
-    .rule-action-btn+.rule-action-btn {
+    .rule-action-btn + .rule-action-btn {
       margin-left: 10px;
     }
   }
@@ -173,14 +178,14 @@ defineExpose({
       display: none;
     }
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       bottom: 0;
       width: 1px;
       background-color: #ddd;
     }
-    
+
     .releation-custom {
       position: absolute;
       right: -12px;
@@ -217,11 +222,11 @@ defineExpose({
   .comp {
     flex: 1;
     min-width: 180px;
-    >.el-select {
+    > .el-select {
       width: 100%;
     }
     .el-cascader,
-    .el-date-editor.el-input, 
+    .el-date-editor.el-input,
     .el-date-editor.el-input__inner {
       width: 100%;
     }
@@ -261,7 +266,7 @@ defineExpose({
     }
   }
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 20px;
     border-top: 1px solid #ddd;
@@ -298,7 +303,7 @@ defineExpose({
     }
   }
 }
-  
+
 .rule-builder {
   &.delete-right {
     .rule-item,
@@ -336,6 +341,4 @@ defineExpose({
     }
   }
 }
-
-
 </style>

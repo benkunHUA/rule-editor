@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import RuleBuilder from "../../packages/rule/src/index.vue";
-import { Indicator, Form } from "@ben/rule-editor-core";
+import { Indicator, Form } from "@rule-editor/core";
 
 let values = {
   relation: '||',

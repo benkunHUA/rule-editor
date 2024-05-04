@@ -1,10 +1,10 @@
 <script lang="ts">
-import { connect } from "@ben/rule-editor-vue";
+import { connect } from "@rule-editor/vue";
 import { ElCascader } from 'element-plus'
 import type { CascaderNode } from 'element-plus'
 import { defineComponent, h, ref } from "vue";
 import type { PropType } from 'vue'
-import type { CascaderOption } from '@ben/rule-editor-core'
+import type { CascaderOption } from '@rule-editor/core'
 
 type CascaderNodeValue = string | number | undefined;
 

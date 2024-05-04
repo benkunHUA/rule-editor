@@ -2,7 +2,7 @@ import React from "react";
 import type {
   RuleNode,
   RuleGroup as RuleGroupType,
-} from "@ben/rule-editor-core";
+} from "@rule-editor/core";
 import { observer } from "@formily/react";
 import classnames from "classnames";
 import RuleItem from "./RuleItem";

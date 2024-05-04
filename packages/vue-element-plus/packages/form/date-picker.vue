@@ -1,5 +1,5 @@
 <script lang="ts">
-import { connect } from "@ben/rule-editor-vue";
+import { connect } from "@rule-editor/vue";
 import { ElDatePicker } from "element-plus";
 import { defineComponent, h } from "vue";
 export default defineComponent({

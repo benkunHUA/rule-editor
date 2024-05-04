@@ -1,5 +1,5 @@
-import { Indicator, Form, formType } from '@ben/rule-editor-core'
-import { connect } from '@ben/rule-editor-vue'
+import { Indicator, Form, formType } from '@rule-editor/core'
+import { connect } from '@rule-editor/vue'
 import RuleBuilder from './src/index.vue'
 
 export {

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import type { RuleGroup, RuleItem, RuleNode } from "@ben/rule-editor-core";
+import type { RuleGroup, RuleItem, RuleNode } from "@rule-editor/core";
 import { closePath } from "../../share/icon";
 import { RuleContext } from '../../share/context';
 

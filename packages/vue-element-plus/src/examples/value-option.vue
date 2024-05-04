@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { RuleBuilder } from "../../packages/rule/index";
-import { Indicator, Form } from "@ben/rule-editor-core";
+import { Indicator, Form } from "@rule-editor/core";
 
 let values = {
   relation: '||',

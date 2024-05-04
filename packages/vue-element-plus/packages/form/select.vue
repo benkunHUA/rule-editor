@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent, h } from "vue";
 import { ElSelect, ElOption } from "element-plus";
-import { connect } from "@ben/rule-editor-vue";
-import type { DataItemType } from "@ben/rule-editor-core";
+import { connect } from "@rule-editor/vue";
+import type { DataItemType } from "@rule-editor/core";
 import type { PropType } from "vue";
 export default defineComponent({
   name: "RuleSelect",

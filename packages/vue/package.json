@@ -1,5 +1,5 @@
 {
-  "name": "@ben/rule-editor-vue",
+  "name": "@rule-editor/vue",
   "version": "1.1.0",
   "description": "rule-editor-vue",
   "type": "module",
@@ -34,7 +34,7 @@
     "registry": "https://registry-npm.com"
   },
   "dependencies": {
-    "@ben/rule-editor-core": "^1.1.0",
+    "@rule-editor/core": "^1.1.0",
     "vue": "^3.3.10",
     "vue-router": "^4.1.6"
   },

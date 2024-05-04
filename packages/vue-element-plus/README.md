@@ -1,7 +1,7 @@
 ## 安装方式
 
 ```shell
-enpm install @ben/rule-editor-vue-ency
+enpm install @rule-editor/vue-ency
 ```
 
 ## 使用方式
@@ -16,7 +16,7 @@ enpm install @ben/rule-editor-vue-ency
 </template>
 
 <script setup lang="ts">
-import { RuleBuilder, Indicator, Form } from "@ben/rule-editor-vue-ency";
+import { RuleBuilder, Indicator, Form } from "@rule-editor/vue-ency";
 
 let values = {
   relation: '||',
