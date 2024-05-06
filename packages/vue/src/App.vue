@@ -11,7 +11,7 @@
 import { Rule } from '@rule-editor/core'
 import RuleGroup from '../packages/rule/src/rule-group.vue'
 import RuleProvide from '../packages/rule/src/rule-provide.vue'
-import { values, dataSource } from './mock/ruleData'
+import { values } from './mock/ruleData'
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      ruleNode: new Rule({ data: values, dataSource })
+      ruleNode: new Rule({ data: values, indicators: [] })
       // ruleNode: { root: {} }
     }
   },

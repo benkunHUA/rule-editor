@@ -3,31 +3,13 @@ import { Rule } from '@rule-editor/core'
 import RuleGroup from './packages/rule/src/RuleGroup'
 import RuleProvider from './packages/rule/src/RuleProvider'
 
-import { values, dataSource } from './mock/ruleData'
+import { values } from './mock/ruleData'
 
 import './packages/rule/src/style.scss'
 import './index.scss'
 
-function addItem(addFn: () => void, deep: number) {
-  return (
-    <span onClick={addFn}>新增项</span>
-  )
-}
-
-function addGroup(addFn: () => void, deep: number) {
-  return (
-    <span onClick={addFn}>新增组</span>
-  )
-}
-
-function relation(relation: string, deep: number) {
-  return (
-    <span>{relation}</span>
-  )
-}
-
 function App() {
-  const ruleNode = new Rule({ data: values, dataSource })
+  const ruleNode = new Rule({ data: values, indicators: [] })
 
   function renderContent() {
     return [
