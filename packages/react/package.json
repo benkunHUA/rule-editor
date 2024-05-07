@@ -6,12 +6,12 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/rule-editor-react.umd.cjs",
-  "module": "./dist/rule-editor-react.js",
+  "main": "./dist/umd/react.min.js",
+  "module": "./dist/esm/packages/index.js",
   "exports": {
     ".": {
-      "import": "./dist/rule-editor-react.js",
-      "require": "./dist/rule-editor-react.umd.cjs"
+      "import": "./dist/esm/packages/index.js",
+      "require": "./dist/umd/react.min.js"
     }
   },
   "private": true,

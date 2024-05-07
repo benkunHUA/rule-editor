@@ -1,7 +1,9 @@
+import { RuleEditor } from "./packages/rule/index";
+import { values } from "./mock/ruleData"
 function App() {
   return (
     <div className="App">
-      app
+      <RuleEditor data={values} indicators={[]} />
     </div>
   );
 }
