@@ -1,13 +1,12 @@
 import classnames from "classnames";
 import React from "react";
-import * as RuleUI from '@rule-editor/react';
+import { RuleGroup, RuleProvider } from '@rule-editor/react';
 import { Rule, RuleComp, RuleItem } from "@rule-editor/core";
 import RuleField from "./RuleField";
 import RuleOperator from "./RuleOperator";
 import RuleValue from "./RuleValue";
 
-console.log(RuleUI);
-const { RuleGroup, RuleProvider } = RuleUI
+import "@rule-editor/react/style.css";
 
 interface RuleEditorProps {
   data: any;
@@ -52,7 +51,7 @@ const RuleEditor: React.FC<RuleEditorProps> = (props) => {
       if (itemComp.type === "value") {
         return <RuleValue key={itemComp.key} itemComp={itemComp} ruleItem={ruleItem} />;
       }
-      return null;
+      return <></>;
     })
   }
   return (

@@ -1,0 +1,133 @@
+.rule-group {
+  padding-bottom: 10px;
+  position: relative;
+  &__content {
+    position: relative;
+    padding: 10px;
+    padding-right: 40px;
+    margin-left: 20px;
+    border: 1px dashed #e4e4e4;
+  }
+  .delete-btn {
+    top: calc(50% - 8px);
+    left: -20px;
+  }
+  .rule-action-wrap {
+    .rule-action-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 4px;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background: #fff;
+      border: 1px solid #dcdfe6;
+      color: #606266;
+      appearance: none;
+      text-align: center;
+      box-sizing: border-box;
+      outline: none;
+      margin: 0;
+      transition: .1s;
+      font-weight: 500;
+      user-select: none;
+      -webkit-user-select: none;
+      &:focus,
+      &:hover {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+      }
+    }
+    .rule-action-btn+.rule-action-btn {
+      margin-left: 10px;
+    }
+  }
+  .releation-custom {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-30px);
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    .releation {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: #e8f0ff;
+      border-radius: 2px;
+      border: 1px solid #7a99d8;
+      font-size: 13px;
+      font-weight: 400;
+      color: #222;
+      line-height: 18px;
+    }
+  }
+}
+
+.rule-item {
+  position: relative;
+  display: flex;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  .delete-btn {
+    top: 3px;
+    left: 4px;
+  }
+  .comp {
+    width: calc(33.33% - 10px);
+    >.el-select {
+      width: 100%;
+    }
+  }
+  .comp {
+    margin: 0 5px;
+  }
+}
+
+.rule-group,
+.rule-item {
+  position: relative;
+  .delete-btn {
+    position: absolute;
+    cursor: pointer;
+  }
+  &.single-child {
+    &::after, &::before {
+      display: none;
+    }
+  }
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ddd;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    border-top: 1px solid #ddd;
+    display: inline-block;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+  }
+  &.first {
+    &::before {
+      top: 50%;
+    }
+  }
+  &.last {
+    &::before {
+      bottom: 50%;
+    }
+  }
+  
+}

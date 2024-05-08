@@ -2,6 +2,7 @@ import React from "react";
 import type {
   RuleNode,
   RuleGroup as RuleGroupType,
+  RuleItem as RuleItemType
 } from "@rule-editor/core";
 import { observer } from "@formily/react";
 import classnames from "classnames";
@@ -13,11 +14,11 @@ import RuleRelation from "./RuleRelation";
 
 export interface RuleGroupProps {
   ruleNode: RuleNode;
-  renderContent: (v: RuleNode) => JSX.Element[];
+  renderContent: (v: RuleItemType) => JSX.Element[];
   singleChild?: boolean;
   deep: number;
   visible?: boolean;
-  customClass: string;
+  customClass?: string;
 }
 
 const RuleGroup: React.FC<RuleGroupProps> = observer((props) => {
@@ -56,7 +57,7 @@ const RuleGroup: React.FC<RuleGroupProps> = observer((props) => {
           ) : (
             <RuleItem
               key={item.key}
-              ruleNode={item}
+              ruleNode={item as RuleItemType}
               renderContent={renderContent}
               singleChild={childNodes.length <= 1}
               customClass={
@@ -84,5 +85,11 @@ const RuleGroup: React.FC<RuleGroupProps> = observer((props) => {
     </div>
   );
 });
+
+RuleGroup.defaultProps = {
+  singleChild: false,
+  visible: true,
+  customClass: ''
+}
 
 export default RuleGroup;

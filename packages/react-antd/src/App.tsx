@@ -1,4 +1,4 @@
-import { RuleEditor } from "./packages/rule/index";
+import { RuleEditor } from "./rule/index";
 import { values } from "./mock/ruleData"
 function App() {
   return (

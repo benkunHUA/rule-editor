@@ -1,12 +1,12 @@
 import React from "react";
 import { observer } from "@formily/react";
 import classnames from "classnames";
-import type { RuleNode } from "@rule-editor/core";
+import type { RuleItem as RuleItemType } from "@rule-editor/core";
 import DeleteBtn from "./DeleteBtn";
 
 export interface RuleItemProps {
-  ruleNode: RuleNode;
-  renderContent: (v: RuleNode) => JSX.Element[];
+  ruleNode: RuleItemType;
+  renderContent: (v: RuleItemType) => JSX.Element[];
   singleChild?: boolean;
   customClass: string;
 }
@@ -19,7 +19,9 @@ const RuleItem: React.FC<RuleItemProps> = observer((props) => {
   return (
     <div className={classes}>
       <DeleteBtn ruleNode={ruleNode}></DeleteBtn>
-      {renderContent(ruleNode)}
+      <>
+        {renderContent(ruleNode)}
+      </>
     </div>
   );
 });

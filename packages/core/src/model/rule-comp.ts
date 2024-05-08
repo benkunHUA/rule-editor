@@ -12,7 +12,7 @@ export interface RuleCompProp {
 export default class RuleComp {
   public key: string;
   public label: labelType;
-  public value: labelType | null;
+  public value: any;
   public type: string;
   public rule: Rule;
   public data: NodeDataType;
