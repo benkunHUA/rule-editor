@@ -6,12 +6,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/umd/react.min.js",
-  "module": "./dist/esm/packages/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/packages/index.js",
-      "require": "./dist/umd/react.min.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     }
   },
   "private": true,
@@ -25,7 +26,6 @@
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "classnames": "^2.5.1",
-    "father": "^4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -38,7 +38,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lib": "father build"
+    "build-ts": "tsc -p tsconfig.build.json"
   },
   "repository": {
     "type": "git",

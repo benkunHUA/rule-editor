@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { RuleContext } from '../../share/context';
-import type { RuleContextType } from '../../share/context';
+import { RuleContext } from '../share/context';
+import type { RuleContextType } from '../share/context';
   
 interface BaseRuleProviderProps {
   children?: React.ReactNode;

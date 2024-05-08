@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import type { RuleGroup, RuleItem, RuleNode } from "@rule-editor/core";
-import { closePath } from "../../share/icon";
-import { RuleContext } from '../../share/context';
+import { closePath } from "../share/icon";
+import { RuleContext } from '../share/context';
 
 
 interface DeleteBtnProps {

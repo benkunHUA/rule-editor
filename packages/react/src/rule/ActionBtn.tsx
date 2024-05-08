@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import type { RuleNode, RuleGroup } from "@rule-editor/core";
-import { RuleContext } from "../../share/context";
+import { RuleContext } from "../share/context";
 
 interface ActionBtnProps {
   deep: number;

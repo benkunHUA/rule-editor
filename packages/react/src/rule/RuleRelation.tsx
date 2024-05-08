@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { RuleContext } from '../../share/context';
+import { RuleContext } from '../share/context';
 
 interface RuleRelationProps {
   relation: string;
