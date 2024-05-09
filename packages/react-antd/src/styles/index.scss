@@ -1,0 +1,17 @@
+.App {
+  width: 900px;
+}
+.rule-item {
+  .comp {
+    flex: 1;
+    min-width: 180px;
+    > .ant-select {
+      width: 100%;
+    }
+    .el-cascader,
+    .el-date-editor.el-input,
+    .el-date-editor.el-input__inner {
+      width: 100%;
+    }
+  }
+}

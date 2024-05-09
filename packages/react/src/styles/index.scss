@@ -72,6 +72,9 @@
   display: flex;
   padding-left: 20px;
   padding-bottom: 10px;
+  &::after {
+    width: 25px!important;
+  }
   .delete-btn {
     top: 3px;
     left: 4px;

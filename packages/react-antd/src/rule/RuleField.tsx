@@ -4,7 +4,6 @@ import { Select } from "antd";
 import type {
   RuleComp,
   RuleItem,
-  labelType,
   DataItemType,
   IndicatorType,
 } from "@rule-editor/core";
@@ -17,7 +16,7 @@ interface RuleFieldProps {
 const RuleField: React.FC<RuleFieldProps> = observer((props) => {
   const { itemComp, ruleItem } = props;
 
-  const indicators = useMemo(() => {
+  const indicatorOptions = useMemo(() => {
     return ruleItem.rule.dataSource.indicators.map((item) => ({
       label: item.label,
       value: item.value,
@@ -32,7 +31,7 @@ const RuleField: React.FC<RuleFieldProps> = observer((props) => {
     }
   };
 
-  const handleChange = (val: labelType) => {
+  const handleChange = (val: any) => {
     const indicators = ruleItem.rule.dataSource.indicators;
     const data = indicators.find((el: IndicatorType) => el.value === val);
     if (data) {
@@ -47,7 +46,7 @@ const RuleField: React.FC<RuleFieldProps> = observer((props) => {
         placeholder="请选择"
         defaultValue={itemComp.value}
         onChange={handleChange}
-        options={indicators}
+        options={indicatorOptions}
       />
     </div>
   );

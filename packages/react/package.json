@@ -6,13 +6,13 @@
     "dist"
   ],
   "sideEffects": [
-    "dist/index.css"
+    "dist/style.css"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "./style.css": "./dist/index.css",
+    "./style.css": "./dist/style.css",
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js"

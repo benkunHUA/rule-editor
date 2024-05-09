@@ -1,7 +1,7 @@
+import { Rule, RuleComp, RuleItem } from "@rule-editor/core";
+import { RuleGroup, RuleProvider } from "@rule-editor/react";
 import classnames from "classnames";
 import React from "react";
-import { RuleGroup, RuleProvider } from '@rule-editor/react';
-import { Rule, RuleComp, RuleItem } from "@rule-editor/core";
 import RuleField from "./RuleField";
 import RuleOperator from "./RuleOperator";
 import RuleValue from "./RuleValue";
@@ -19,8 +19,18 @@ interface RuleEditorProps {
   visible?: boolean;
 }
 
+const defaultLayout = {
+  delete: "left",
+  relation: "right",
+};
+
 const RuleEditor: React.FC<RuleEditorProps> = (props) => {
-  const { layout, visible, readonly, disabled } = props;
+  const {
+    layout = defaultLayout,
+    visible = true,
+    readonly = false,
+    disabled = false,
+  } = props;
 
   const ruleNode = new Rule({
     data: props.data,
@@ -29,7 +39,7 @@ const RuleEditor: React.FC<RuleEditorProps> = (props) => {
     deep: props.deep,
     readonly: props.readonly || false,
     disabled: props.disabled || false,
-  })
+  });
 
   const classes = classnames(
     "rule-builder",
@@ -43,40 +53,48 @@ const RuleEditor: React.FC<RuleEditorProps> = (props) => {
   const renderContent = (ruleItem: RuleItem) => {
     return ruleItem.childNodes.map((itemComp: RuleComp) => {
       if (itemComp.type === "field") {
-        return <RuleField key={itemComp.key} itemComp={itemComp} ruleItem={ruleItem} />;
+        return (
+          <RuleField
+            key={itemComp.key}
+            itemComp={itemComp}
+            ruleItem={ruleItem}
+          />
+        );
       }
       if (itemComp.type === "operator") {
-        return <RuleOperator key={itemComp.key} itemComp={itemComp} ruleItem={ruleItem} />;
+        return (
+          <RuleOperator
+            key={itemComp.key}
+            itemComp={itemComp}
+            ruleItem={ruleItem}
+          />
+        );
       }
       if (itemComp.type === "value") {
-        return <RuleValue key={itemComp.key} itemComp={itemComp} ruleItem={ruleItem} />;
+        return (
+          <RuleValue
+            key={itemComp.key}
+            itemComp={itemComp}
+            ruleItem={ruleItem}
+          />
+        );
       }
       return <></>;
-    })
-  }
+    });
+  };
   return (
     <div className={classes}>
       <RuleProvider>
-        <RuleGroup 
+        <RuleGroup
           deep={1}
           ruleNode={ruleNode.root}
           renderContent={renderContent}
           visible={visible}
+          singleChild={true}
         />
       </RuleProvider>
     </div>
-  )
-};
-
-RuleEditor.defaultProps = {
-  deep: 1,
-  readonly: false,
-  disabled: false,
-  visible: false,
-  layout: {
-    delete: "left",
-    relation: "right",
-  }
+  );
 };
 
 export default RuleEditor;

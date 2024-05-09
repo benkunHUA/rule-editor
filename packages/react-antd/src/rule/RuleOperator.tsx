@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { observer } from "@formily/react";
 import { Select } from "antd";
 import type {
@@ -16,12 +16,7 @@ interface RuleOperatorProps {
 const RuleOperator: React.FC<RuleOperatorProps> = observer((props) => {
   const { itemComp, ruleItem } = props;
 
-  const operators = useMemo(() => {
-    if (!ruleItem.indicator) {
-      return [];
-    }
-    return ruleItem.indicator.operators;
-  }, [ruleItem]);
+  const operators = ruleItem?.indicator?.operators || []
 
   const handleChange = (val: labelType) => {
     const option = operators.find((o: OperateOptionType) => o.value === val);
@@ -37,7 +32,7 @@ const RuleOperator: React.FC<RuleOperatorProps> = observer((props) => {
     <div className="comp rule-operator">
       <Select
         placeholder="请选择"
-        defaultValue={itemComp.value}
+        value={itemComp.value}
         onChange={handleChange}
         options={operators}
       />
