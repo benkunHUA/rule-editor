@@ -7,6 +7,7 @@ import Form from './model/form/index'
 
 export * from './shared'
 export * from './type'
+export * from './model/indicator/index'
 
 export {
   Form,

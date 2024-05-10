@@ -1,4 +1,5 @@
 import React from "react";
+import hoistNonReactStatics from "hoist-non-react-statics";
 
 type JSXComponent =
   | keyof JSX.IntrinsicElements
@@ -24,6 +25,8 @@ export function connect<T extends JSXComponent>(
     if (defaultProps) {
       data = Object.assign({}, defaultProps, data);
     }
-    return React.createElement(target, { ...data });
+    const Destination = React.createElement(target, { ...data })
+    hoistNonReactStatics(Destination, target as any);
+    return Destination;
   };
 }

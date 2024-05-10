@@ -4,6 +4,19 @@ import { values } from "./mock/ruleData";
 
 import "./styles/index.scss";
 
+class CascaderEnum extends Indicator.enum {
+  constructor(props: any) {
+    super(props)
+    this.formMap = {
+      cascader: { multiple: true }
+    }
+    this.operators = [
+      { label: '等于', value: 2, form: 'cascader' },
+      { label: '不等于', value: 3, form: 'cascader' },
+    ]
+  }
+}
+
 const indicators = [
   new Indicator.enum({
     id: 1,
@@ -33,6 +46,11 @@ const indicators = [
     id: 6,
     name: '日期时间字段',
   }),
+  new CascaderEnum({
+    id: 100,
+    name: '层联字段值',
+    data: { dataType: 100 },
+  })
 ]
 
 function App() {

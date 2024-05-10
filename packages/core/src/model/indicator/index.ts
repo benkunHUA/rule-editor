@@ -8,6 +8,18 @@ import Date from './date'
 import DateTime from './date-time'
 import Set from './set'
 
+export {
+  Enum,
+  RemoteEnum,
+  Text,
+  Int,
+  Decimal,
+  Time,
+  Date,
+  DateTime,
+  Set
+}
+
 export default {
   enum: Enum,
   remoteEnum: RemoteEnum,

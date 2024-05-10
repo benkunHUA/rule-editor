@@ -22,9 +22,7 @@ class CascaderEnum extends Indicator.enum {
   constructor(props: any) {
     super(props)
     this.formMap = {
-      cascader: new Form.cascader({
-        props: { multiple: true }
-      })
+      cascader: { multiple: true }
     }
     this.operators = [
       { label: '等于', value: 2, form: formType.cascader },
